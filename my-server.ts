@@ -13,7 +13,7 @@ const PORT = process.env.PORT ?? 8000;    // Allow dynamic PORT setting (Heroku)
 
 // Define GET endpoint(s)
 app.get("/", (req:Request, res:Response) => {
-  res.send(currentWord);
+  res.send({ secret: currentWord });
 });
 app.listen(PORT, () => {
   console.log(`Server is listening to port ${PORT}`);
