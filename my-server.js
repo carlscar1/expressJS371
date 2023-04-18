@@ -9,12 +9,12 @@ let storedWords = ["apple", "shade", "watch", "agree", "power", "piece", "bloom"
 function getRandomInt() {
     return Math.floor(Math.random() * storedWords.length);
 }
-var index = getRandomInt();
-let currentWord = storedWords[index];
 const app = (0, express_1.default)();
 const PORT = (_a = process.env.PORT) !== null && _a !== void 0 ? _a : 8000; // Allow dynamic PORT setting (Heroku)
 // Define GET endpoint(s)
 app.get("/", (req, res) => {
+    var index = getRandomInt();
+    let currentWord = storedWords[index];
     res.send({ secret: currentWord });
 });
 app.listen(PORT, () => {
