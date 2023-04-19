@@ -1,4 +1,5 @@
 import express, {Application, Request, Response} from "express";
+import cors from "cors";
 
 let storedWords: Array<string> = ["apple", "shade", "watch", "agree", "power", "piece", "bloom", "plead", "sorry", "spoon", "bunny", "pause", "audio", "dream"]
 
@@ -8,6 +9,7 @@ function getRandomInt() {
 
 const app:Application = express();
 const PORT = process.env.PORT ?? 8000;    // Allow dynamic PORT setting (Heroku)
+app.use(cors());
 
 // Define GET endpoint(s)
 app.get("/", (req:Request, res:Response) => {
